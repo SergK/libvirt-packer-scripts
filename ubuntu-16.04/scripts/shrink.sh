@@ -26,7 +26,7 @@ find /var/log/apt -maxdepth 1 -type f -exec cp /dev/null {} \;
 find /var/log/fsck -maxdepth 1 -type f -exec cp /dev/null {} \;
 journalctl --vacuum-time=1seconds
 
-# Whiteout root
+# Whipeout root
 count=$(df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}')
 let count--
 dd if=/dev/zero of=/tmp/whitespace bs=1024 count=$count
